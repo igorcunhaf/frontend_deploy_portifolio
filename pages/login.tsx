@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { setCookie } from 'cookies-next'; // Importar setCookie
 
 const LoginPage = () => {
   const router = useRouter();
@@ -18,7 +19,6 @@ const LoginPage = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-      
 
       if (!res.ok) {
         const errorData = await res.json();
@@ -27,8 +27,17 @@ const LoginPage = () => {
 
       const data = await res.json();
 
-      // Armazena o token no localStorage
+      // Armazena o token no localStorage (opcional, mas pode ser útil)
       localStorage.setItem('token', data.token);
+
+      // Armazena o token nos Cookies
+      setCookie('token', data.token, {
+        path: '/', // Disponível em todo o site
+        // secure: process.env.NODE_ENV === 'production', // Usar true em produção (HTTPS)
+        // httpOnly: true, // Não pode ser acessado via JS no cliente (mais seguro, mas impede getCookie)
+        // sameSite: 'strict', // Ajuda a prevenir CSRF
+        // maxAge: 60 * 60 * 24 * 7 // Exemplo: 7 dias
+      });
 
       // Redireciona para a intranet
       router.push('/intranet');
@@ -86,3 +95,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
