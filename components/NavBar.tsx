@@ -48,7 +48,7 @@ const Navbar = () => {
           <Link href="/sobre" legacyBehavior><a className="block hover:text-[#3B82F6]">Sobre</a></Link>
           <Link href="/projetos" legacyBehavior><a className="block hover:text-[#3B82F6]">Projetos</a></Link>
           <Link href="/blog" legacyBehavior><a className="block hover:text-[#3B82F6]">Blog</a></Link>
-          <Link href="/intranet" legacyBehavior>
+          <Link href="/login" legacyBehavior>
             <a className="block bg-[#3B82F6] text-white px-4 py-2 rounded hover:bg-white hover:text-[#1E3A8A] transition">
               Intranet
             </a>
