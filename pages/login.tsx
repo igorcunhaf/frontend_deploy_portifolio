@@ -28,10 +28,9 @@ const LoginPage = () => {
       const data = await res.json();
 
       // Armazena o token no localStorage (opcional, mas pode ser útil)
-      localStorage.setItem('token', data.token);
-
+      localStorage.setItem('access_token', data.access_token);
       // Armazena o token nos Cookies
-      setCookie('token', data.token, {
+      setCookie('access_token', data.access_token, {
         path: '/', // Disponível em todo o site
         // secure: process.env.NODE_ENV === 'production', // Usar true em produção (HTTPS)
         // httpOnly: true, // Não pode ser acessado via JS no cliente (mais seguro, mas impede getCookie)
