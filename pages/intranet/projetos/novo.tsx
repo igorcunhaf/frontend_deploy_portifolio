@@ -16,7 +16,7 @@ const NovoProjeto = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
       body: JSON.stringify({ title, description, technologies, githubLink, liveDemoLink, imageUrl }),
     });
@@ -28,12 +28,50 @@ const NovoProjeto = () => {
       <div className="bg-white p-8 rounded shadow-md w-full max-w-lg">
         <h1 className="text-2xl font-bold mb-6 text-[#1E3A8A]">Novo Projeto</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input type="text" placeholder="Título" value={title} onChange={(e) => setTitle(e.target.value)} required className="input" />
-          <textarea placeholder="Descrição" value={description} onChange={(e) => setDescription(e.target.value)} required className="input" />
-          <input type="text" placeholder="Tecnologias (ex: React, NestJS)" value={technologies} onChange={(e) => setTechnologies(e.target.value)} required className="input" />
-          <input type="url" placeholder="Link GitHub" value={githubLink} onChange={(e) => setGithubLink(e.target.value)} className="input" />
-          <input type="url" placeholder="Link Demo" value={liveDemoLink} onChange={(e) => setLiveDemoLink(e.target.value)} className="input" />
-          <input type="url" placeholder="URL da Imagem" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} className="input" />
+          <input
+            type="text"
+            placeholder="Título"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+            className="input"
+          />
+          <textarea
+            placeholder="Descrição"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+            className="input"
+          />
+          <input
+            type="text"
+            placeholder="Tecnologias (ex: React, NestJS)"
+            value={technologies}
+            onChange={(e) => setTechnologies(e.target.value)}
+            required
+            className="input"
+          />
+          <input
+            type="url"
+            placeholder="Link GitHub"
+            value={githubLink}
+            onChange={(e) => setGithubLink(e.target.value)}
+            className="input"
+          />
+          <input
+            type="url"
+            placeholder="Link Demo"
+            value={liveDemoLink}
+            onChange={(e) => setLiveDemoLink(e.target.value)}
+            className="input"
+          />
+          <input
+            type="url"
+            placeholder="URL da Imagem"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            className="input"
+          />
           <div className="flex justify-start mt-2">
             <button
               type="submit"
