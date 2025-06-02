@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
@@ -8,10 +9,20 @@ const Navbar = () => {
   return (
     <nav className="bg-[#1E3A8A] text-white fixed w-full z-50 shadow-md animate-fade-in">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo com imagem reduzida */}
         <Link href="/" legacyBehavior>
-          <a className="text-2xl font-bold tracking-wide hover:text-[#3B82F6] transition">
-            Igor Ferreira
+          <a className="flex items-center gap-3 group transition">
+            <Image
+              src="/perfil.jpeg"
+              alt="Foto de perfil de Igor Cunha Ferreira"
+              width={38}
+              height={38}
+              className="rounded-full shadow-md object-cover border-2 border-white group-hover:border-[#3B82F6] transition"
+              priority
+            />
+            {/* <span className="text-2xl font-bold tracking-wide group-hover:text-[#3B82F6] transition">
+              Igor Ferreira
+            </span> */}
           </a>
         </Link>
 
@@ -44,6 +55,17 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {open && (
         <div className="md:hidden bg-[#1E3A8A] px-4 pb-4 space-y-2">
+          <div className="flex items-center gap-3 mb-2">
+            <Image
+              src="/perfil.jpeg"
+              alt="Foto de perfil reduzida"
+              width={34}
+              height={34}
+              className="rounded-full border-2 border-white object-cover"
+              priority
+            />
+            <span className="font-bold">Igor Ferreira</span>
+          </div>
           <Link href="/" legacyBehavior><a className="block hover:text-[#3B82F6]">Início</a></Link>
           <Link href="/sobre" legacyBehavior><a className="block hover:text-[#3B82F6]">Sobre</a></Link>
           <Link href="/projetos" legacyBehavior><a className="block hover:text-[#3B82F6]">Projetos</a></Link>
